@@ -2,12 +2,13 @@
   "name": "@justinc/to-validation",
   "version": "1.0.0",
   "description": "Utility to convert to Folktale Validation",
-  "main": "lib/index.js",
+  "main": "lib/bundle.js",
   "scripts": {
     "lint": "standard",
+    "build": "rollup -c",
     "pretest": "npm run lint",
     "postversion": "npm publish --access=public && git push --follow-tags --set-upstream origin master",
-    "test": "ava"
+    "test": "npm run build && ava"
   },
   "keywords": [
     "validation",
@@ -25,10 +26,12 @@
     "@justinc/no-dups-validator": "^1.0.1",
     "ava": "^0.18.2",
     "folktale": "2.0.0-alpha3",
+    "rollup": "^0.41.6",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
     "standard": "9.0.2"
   },
   "dependencies": {
-    "@justinc/fpo-apply": "^1.0.1",
-    "@justinc/fpo-curry-multiple": "^1.0.1"
+    "fpo": "^6.0.1"
   }
 }

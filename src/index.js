@@ -1,5 +1,4 @@
-var apply = require('@justinc/fpo-apply')
-var curryMultiple = require('@justinc/fpo-curry-multiple')
+import { curryMultiple, apply } from 'fpo'
 
 function toValidation (isValidation, isFailureLike, toFailure, toSuccess, v) {
   if (isValidation(v)) return v
@@ -7,7 +6,7 @@ function toValidation (isValidation, isFailureLike, toFailure, toSuccess, v) {
   return toSuccess(v)
 }
 
-module.exports = curryMultiple({
+export default curryMultiple({
   fn: apply({ fn: toValidation }),
   n: 5
 })
